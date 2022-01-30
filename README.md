@@ -1,9 +1,11 @@
-# fav-links-widget
+# FAV-LINKS-WIDGET
 
 ubersicht widget  
 https://github.com/felixhageloh/uebersicht
 
-## stack
+## STACK
 jsx
 
 ![screenshot](./assets/screenshot.png)
+
+## TODO
