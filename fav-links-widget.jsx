@@ -1,21 +1,67 @@
 import { css } from "uebersicht"
 
-const github = css`
+const fav = css`
   font-family: Inter;
   font-weight: bold;
   font-size: 14px;
   display: flex;
-  border-radius: 0 0 4px 4px;
+`
+
+const github = css`
+  border-radius: 0 0 6px 6px;
   height: 18px;
-  padding: 2px 14px;
-  margin-left: -20px;
+  padding: 2px 8px;
+  margin-left: -14px;
   position: relative;
   top: 250px;
-  left: -16px;
-  color: #000;
-  background-color: #f00;
+  left: -17px;
+  background-color: #383838;
   transform: rotate(270deg);
+  border: 1px solid #383838;
   cursor: pointer;
+  > a > svg {
+    fill: rgba(255, 255, 255, 0.65);
+    transform: rotate(90deg);
+  }
+  :hover {
+    > a {
+      color: black;
+    }
+    > a > svg {
+      fill: black;
+    }
+    border: 1px solid white;
+    background-color: white;
+  }
+`
+
+const twitter = css`
+  border-radius: 0 0 6px 6px;
+  height: 18px;
+  padding: 2px 6px;
+  margin-left: -14px;
+  position: relative;
+  top: 314px;
+  left: -59px;
+  background-color: #383838;
+  transform: rotate(270deg);
+  border: 1px solid #383838;
+  cursor: pointer;
+  > a > svg {
+    margin-top: 3px;
+    fill: rgba(255, 255, 255, 0.65);
+    transform: rotate(90deg);
+  }
+  :hover {
+    > a {
+      color: black;
+    }
+    > a > svg {
+      fill: black;
+    }
+    border: 1px solid white;
+    background-color: white;
+  }
 `
 
 const flex = css`
@@ -23,7 +69,7 @@ const flex = css`
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  color: #000;
+  color: rgba(255, 255, 255, 0.65);
 `
 const text = css`
   margin: 0;
@@ -35,7 +81,7 @@ export const render = ({output, error}) => {
   return error ? (
     <div>Something went wrong: <strong>{String(error)}</strong></div>
   ) : (
-    <div>
+    <div className={fav}>
       <div className={github}>
         <a className={flex} href="https://github.com/">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
@@ -44,13 +90,13 @@ export const render = ({output, error}) => {
           <p className={text}>Github</p>
         </a>
       </div>
+      <div className={twitter}>
+        <a className={flex} href="https://twitter.com/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/></svg>
+          {/* <p className={text}>Twitter</p> */}
+        </a>
+      </div>
       <p>{output}</p>
     </div>
   );
 }
-
-export const className = `
-  top: 0;
-  left: 0;
-  color: #fff;
-`
